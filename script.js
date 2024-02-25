@@ -1,8 +1,9 @@
-let palavras = [];
+let palavras = ['FEUDO', 'RAPEL', 'AIPOS'];
 let alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 let acentos = ['´', '~', '^', '-'];
 
-let palTeste = 'Feudo'
+let sortword = palavras[Math.floor(Math.random() * ((palavras.length-1) - 0 + 1)) + 0];
+
 let cliques = 0;
 // PALAVRA
 let tentativas = document.querySelector('div.tentativas');
@@ -14,7 +15,7 @@ for (let x = 5; x >= 1; x--) {
         let letr = document.createElement('p');
         letr.textContent = `X`;
         letr.className = 'letr';
-        letr.id = palTeste.toUpperCase().split('')[x];
+        letr.id = sortword.toUpperCase().split('')[x];
         palavra.appendChild(letr);
     }
 
@@ -38,6 +39,7 @@ for (element of alfabeto) {
     teclado.appendChild(label);
 }
 
+// TENTATIVAS
 let letrasTec = document.querySelectorAll('label.teclas');
 let acertos = 0;
 letrasTec.forEach((item) => {
@@ -52,7 +54,7 @@ letrasTec.forEach((item) => {
         letrasIn.textContent = item.textContent;
 
         if (item.style.backgroundColor != 'red') {
-            if (palTeste.toUpperCase().split('').includes(item.textContent)) {                
+            if (sortword.toUpperCase().split('').includes(item.textContent)) {                
                 if (lc.id == item.textContent) {
                     lc.textContent = item.textContent;
                     lc.style.backgroundColor = 'green';
