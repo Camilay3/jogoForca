@@ -1,6 +1,5 @@
-let palavras = ['FEUDO', 'RAPEL', 'AIPOS'];
+let palavras = ['FEÚDO', 'RÁPEL', 'ÁIPOS'];
 let alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-let acentos = ['´', '~', '^', '-'];
 
 let sortword = palavras[Math.floor(Math.random() * ((palavras.length-1) - 0 + 1)) + 0];
 
@@ -21,6 +20,8 @@ for (let x = 5; x >= 1; x--) {
 
     tentativas.appendChild(palavra);
 }
+sortword = sortword.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase().split('') // retira os acentos
+console.log(sortword)
 
 // TECLADO
 let teclado = document.querySelector('div.botoes');
@@ -54,9 +55,11 @@ letrasTec.forEach((item) => {
         letrasIn.textContent = item.textContent;
 
         if (item.style.backgroundColor != 'red') {
-            if (sortword.toUpperCase().split('').includes(item.textContent)) {                
+            if (sortword.includes(item.textContent)) {
+                
+                // FICA AMARELO POR CAUSA DA POSIÇÃO, MAS ISSO ATRAPALHA DE VER OS ACENTOS POIS O ID TEM ACENTUAÇÃO
                 if (lc.id == item.textContent) {
-                    lc.textContent = item.textContent;
+                    lc.textContent = lc.id;
                     lc.style.backgroundColor = 'green';
 
                     if (acertos == 4) {
