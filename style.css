@@ -29,8 +29,7 @@ body, html {
     height: 60px;
 }
 
-.palavra .letr {
-    border: 2px solid pink;
+.palavra .letr, .palavra .letraCompleta {
     font-size: xx-large;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
@@ -38,10 +37,10 @@ body, html {
     align-items: center;
     justify-content: center;
 
-    width: 50px;
+    width: 70px;
     height: 50px;
     margin: 2px;
-    border-bottom: 4px solid red;
+    border-bottom: 3px solid purple;
 }
 
 /* .palavra .letr:hover {
