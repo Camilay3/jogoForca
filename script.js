@@ -1,7 +1,7 @@
-let palavras = ['FEUDO', 'RAPEL', 'AIPOS'];
+let palavras = ['FEUDO', 'RAPEL', 'AIPOS', 'dócil', 'fúria', 'grato', 'haste', 'ímpar', 'líder', 'móvel', 'nobre', 'régua', 'sábio', 'gênio', 'hábil', 'ídolo', 'lírio', 'túnel'];
 let alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-let sortword = palavras[Math.floor(Math.random() * ((palavras.length-1) - 0 + 1)) + 0];
+let sortword = palavras[Math.floor(Math.random() * ((palavras.length - 1) - 0 + 1)) + 0];
 
 let cliques = 0;
 // PALAVRA
@@ -12,7 +12,6 @@ for (let x = 5; x >= 1; x--) {
 
     for (let x = 0; x < 5; x++) {
         let letr = document.createElement('p');
-        letr.textContent = `X`;
         letr.className = 'letr';
         letr.id = sortword.toUpperCase().split('')[x];
         palavra.appendChild(letr);
@@ -42,21 +41,22 @@ for (element of alfabeto) {
 // TENTATIVAS
 let letrasTec = document.querySelectorAll('label.teclas');
 let acertos = 0;
+console.log(sortword)
 letrasTec.forEach((item) => {
     item.addEventListener('click', () => {
-        acertos = cliques == 5 ? 0 : acertos;
+        if (cliques % 5 == 0) {
+            acertos = 0;
+        }
         if (cliques == 24 && acertos < 4) {
             window.alert('perdeu');
         }
-        
+
         let letrasIn = document.querySelectorAll('p.letr');
         let lc = letrasIn[cliques];
         letrasIn.textContent = item.textContent;
 
         if (item.style.backgroundColor != 'red') {
             if (sortword.includes(item.textContent)) {
-                
-                // FICA AMARELO POR CAUSA DA POSIÇÃO, MAS ISSO ATRAPALHA DE VER OS ACENTOS POIS O ID TEM ACENTUAÇÃO
                 if (lc.id.normalize('NFD').replace(/[\u0300-\u036f]/g, "") == item.textContent) {
                     lc.textContent = lc.id;
                     lc.style.backgroundColor = 'green';
@@ -70,7 +70,7 @@ letrasTec.forEach((item) => {
                 } else {
                     lc.textContent = item.textContent;
                     lc.style.backgroundColor = 'yellow';
-                    
+
                     acertos = 0;
                 }
 
@@ -79,14 +79,13 @@ letrasTec.forEach((item) => {
                 lc.style.backgroundColor = 'red';
                 item.style.opacity = '20%';
                 item.style.cursor = 'auto';
-                
+
                 acertos = 0;
             }
             item.style.border = '2px solid cadetblue';
 
             cliques++;
         }
-
     });
 });
 

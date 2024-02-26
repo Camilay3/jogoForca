@@ -4,18 +4,25 @@
     border: 0;
 }
 
-body, html {
+body {
     width: 100%;
     height: 100vh;
+    background-color: rgb(255, 255, 241);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: auto;
 }
 
 /* PALAVRAS */
 .tentativas {
-    display: flex;
     width: 30%;
     height: fit-content;
-    margin: 100px auto;
-
+    margin: 50px auto;
+    
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -25,11 +32,9 @@ body, html {
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
-
-    height: 60px;
 }
 
-.palavra .letr, .palavra .letraCompleta {
+.palavra .letr {
     font-size: xx-large;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
@@ -39,22 +44,16 @@ body, html {
 
     width: 70px;
     height: 50px;
-    margin: 2px;
+    margin: 2px 4px;
+    border-radius: 10px;
     border-bottom: 3px solid purple;
 }
-
-/* .palavra .letr:hover {
-    background-color: aliceblue;
-    cursor: pointer;
-} */
 
 /* TECLADO */
 .botoes {
     display: flex;
     width: 60%;
     margin: auto;
-
-    border: 2px solid black;
 
     align-items: center;
     justify-content: space-around;
@@ -78,16 +77,13 @@ body, html {
     justify-content: center;
     font-family: cursive;
     font-weight: bold;
-}
-
-.botoes input[type="radio"]:checked + label {
-    background-color: blue;
     color: white;
 }
 
 .botoes label:hover {
     background-color: aquamarine;
     border: 2px solid black;
+    color: black;
     cursor: pointer;
     font-weight: bolder;
 }
