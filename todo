@@ -1,7 +1,8 @@
 [x] Sorteio de palavras
-[ ] Se ficar lilás: a letra está correta mas acentuação errada = sobrepõe ao amarelo, vermelho e verde
+[x] Lidar com palavras acentuadas
 [ ] Estilizar
 [ ] Tutorial das cores
-[ ] Lidar com palavras de letras repetidas
+[ ] Banco de palavras
 [ ] Conseguir escolher qual posição colocar a letra
 [ ] Cookies para salvar progresso (só front)
+[ ] Lidar com palavras de letras repetidas (é necessário mesmo ou tira a graça do jogo?)
